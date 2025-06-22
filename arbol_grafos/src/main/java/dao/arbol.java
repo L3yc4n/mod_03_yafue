@@ -120,67 +120,6 @@ public class arbol {
     public boolean estaVacio() {
         return raiz == null;
     }
-    
- public Usuario buscar(String nombre) {
-        return buscarRecursivo(raiz, nombre);
-    }
-
-    private Usuario buscarRecursivo(NodoBinario nodo, String nombre) {
-        if (nodo == null) {
-            return null;
-        }
-
-        int comparacion = nombre.compareTo(nodo.dato.getNombre());
-        
-        if (comparacion < 0) {
-            return buscarRecursivo(nodo.izquierda, nombre);
-        } else if (comparacion > 0) {
-            return buscarRecursivo(nodo.derecha, nombre);
-        } else {
-            return nodo.dato; // Usuario encontrado
-        }
-    }
-    
-    
-    public boolean eliminar(String nombre) {
-        raiz = eliminarRecursivo(raiz, nombre);
-        return raiz != null; // Retorna true si se eliminó
-    }
-
-    private NodoBinario eliminarRecursivo(NodoBinario nodo, String nombre) {
-        if (nodo == null) {
-            return null;
-        }
-
-        int comparacion = nombre.compareTo(nodo.dato.getNombre());
-        
-        if (comparacion < 0) {
-            nodo.izquierda = eliminarRecursivo(nodo.izquierda, nombre);
-        } else if (comparacion > 0) {
-            nodo.derecha = eliminarRecursivo(nodo.derecha, nombre);
-        } else {
-            // Caso 1: Nodo sin hijos o con un solo hijo
-            if (nodo.izquierda == null) {
-                return nodo.derecha;
-            } else if (nodo.derecha == null) {
-                return nodo.izquierda;
-            }
-            
-            // Caso 2: Nodo con dos hijos
-            nodo.dato = encontrarMinimo(nodo.derecha);
-            nodo.derecha = eliminarRecursivo(nodo.derecha, nodo.dato.getNombre());
-        }
-        return nodo;
-    }
-
-    private Usuario encontrarMinimo(NodoBinario nodo) {
-        while (nodo.izquierda != null) {
-            nodo = nodo.izquierda;
-        }
-        return nodo.dato;
-    }
-
-    
 }
 
 //public class Main {
@@ -195,5 +134,4 @@ public class arbol {
 //        arbol.imprimirInOrden();
 //    }
 //}
-// esto iria dentro de la llave
 
