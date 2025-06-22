@@ -20,54 +20,92 @@ import dao.arbol;
 
 import java.util.Scanner;
 
+
 public class FraArbol {
     private arbol arbolUsuarios = new arbol();
+    private Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        FraArbol programa = new FraArbol();
-        programa.ejecutar();
+        new FraArbol().iniciar();
     }
 
-    public void ejecutar() {
-        Scanner scanner = new Scanner(System.in);
+    public void iniciar() {
         int opcion;
-        
         do {
-            System.out.println("\n--- MENÚ ---");
+            System.out.println("\n--- MENÚ PRINCIPAL ---");
             System.out.println("1. Agregar usuario");
-            System.out.println("2. Mostrar usuarios");
-            System.out.println("3. Salir");
+            System.out.println("2. Buscar usuario");
+            System.out.println("3. Eliminar usuario");
+            System.out.println("4. Mostrar todos");
+            System.out.println("5. Salir");
             System.out.print("Seleccione: ");
             
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+            scanner.nextLine(); // Limpiar buffer
             
             switch(opcion) {
                 case 1:
-                    System.out.print("Nombre: ");
-                    String nombre = scanner.nextLine();
-                    
-                    System.out.print("Teléfono: ");
-                    String telefono = scanner.nextLine();
-                    
-                    arbolUsuarios.agregar(new Usuario(nombre, telefono));
-                    System.out.println("Usuario agregado!");
+                    agregarUsuario();
                     break;
-                    
                 case 2:
-                    System.out.println("\n--- USUARIOS ---");
-                    arbolUsuarios.imprimirInOrden();
+                    buscarUsuario();
                     break;
-                    
                 case 3:
+                    eliminarUsuario();
+                    break;
+                case 4:
+                    mostrarUsuarios();
+                    break;
+                case 5:
                     System.out.println("Saliendo...");
                     break;
-                    
                 default:
                     System.out.println("Opción inválida");
             }
-        } while(opcion != 3);
+        } while(opcion != 5);
+    }
+
+    private void agregarUsuario() {
+        System.out.println("\n--- AGREGAR USUARIO ---");
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
         
-      //  scanner.close();
+        System.out.print("Teléfono: ");
+        String telefono = scanner.nextLine();
+        
+        arbolUsuarios.agregar(new Usuario(nombre, telefono));
+        System.out.println("Usuario agregado!");
+    }
+
+    private void buscarUsuario() {
+        System.out.println("\n--- BUSCAR USUARIO ---");
+        System.out.print("Ingrese nombre a buscar: ");
+        String nombre = scanner.nextLine();
+        
+        Usuario encontrado = arbolUsuarios.buscar(nombre);
+        
+        if(encontrado != null) {
+            System.out.println("Usuario encontrado:");
+            System.out.println(encontrado);
+        } else {
+            System.out.println("Usuario no encontrado");
+        }
+    }
+
+    private void eliminarUsuario() {
+        System.out.println("\n--- ELIMINAR USUARIO ---");
+        System.out.print("Ingrese nombre a eliminar: ");
+        String nombre = scanner.nextLine();
+        
+        if(arbolUsuarios.eliminar(nombre)) {
+            System.out.println("Usuario eliminado exitosamente");
+        } else {
+            System.out.println("No se pudo eliminar el usuario");
+        }
+    }
+
+    private void mostrarUsuarios() {
+        System.out.println("\n--- LISTA DE USUARIOS ---");
+        arbolUsuarios.imprimirInOrden();
     }
 }
