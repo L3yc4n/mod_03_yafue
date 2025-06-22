@@ -27,6 +27,7 @@ import java.util.List;
 //    }
 //}
 
+
 //class NodoBinario {
 //    Usuario dato;  
 //    NodoBinario izquierda;
@@ -120,4 +121,17 @@ public class arbol {
         return raiz == null;
     }
 }
+
+//public class Main {
+//    public static void main(String[] args) {
+//        ArbolBinario arbol = new ArbolBinario();
+//        
+//        arbol.agregar(new Usuario("Carlos", "123456789"));
+//        arbol.agregar(new Usuario("Ana", "987654321"));
+//        arbol.agregar(new Usuario("Zoe", "555555555"));
+//        arbol.agregar(new Usuario("Beto", "111111111"));
+//        
+//        arbol.imprimirInOrden();
+//    }
+//}
 
