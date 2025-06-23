@@ -1,3 +1,4 @@
+
 class RedSocial {
       constructor() {
         this.grafo = {};
@@ -130,3 +131,4 @@ class RedSocial {
     }
 
     window.onload = inicializarGrafo;
+    

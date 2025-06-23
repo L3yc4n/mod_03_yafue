@@ -1,3 +1,4 @@
+
  class MaxHeap {
       constructor() {
         this.heap = [];
@@ -75,3 +76,4 @@
       const div = document.getElementById("heapDisplay");
       div.innerHTML = heap.getHeap().join(" | ");
     }
+
