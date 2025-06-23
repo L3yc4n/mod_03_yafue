@@ -2,7 +2,7 @@
 package gui;
 
 import dto.AB_Usuario;
-import dao.arbol;
+import dao.Arbol;
 
 //public class FraArbol extends arbol {
 //    public static void main(String[] args) {
@@ -23,7 +23,7 @@ import java.util.Scanner;
 
 
 public class FraArbol {
-    private arbol arbolUsuarios = new arbol();
+    private Arbol arbolUsuarios = new Arbol();
     private Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
