@@ -145,3 +145,27 @@ function verificarConexion() {
     mostrarResultado("Error: Ingrese dos nombres de usuario.");
   }
 }
+
+
+////////////////////////////////////ESTO ES EL EXAMEN NADA QUE VER 
+//
+//    //PROMEDIO
+//      promedio(nodo = this.raiz) {
+//      let suma=0;
+//      let cantidad=0;
+//
+//      function bucle(nodo) { //supuestamente es el recorrido...
+//        if (!nodo) return;
+//        bucle(nodo.izq);
+//        //almaceno todas las notas del nodo,aumento la cantidad para luego dividir 
+//        suma+=parseFloat(nodo.nota);
+//        cantidad++;
+//        bucle(nodo.der);
+//      }
+//      bucle(nodo); 
+//   // if (cantidad === 0) return 0;//por si las dudas (si le pongo 0 jajaja no daba)
+//
+//      return (suma / cantidad);
+//    }
+//    
+//  }
